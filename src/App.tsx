@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className='flex items-center justify-center min-h-screen'>
+      <div className="flex items-center justify-center min-h-screen">
         <button
-          className='
+          className="
             rounded-lg border border-transparent
             px-5 py-2 text-base font-medium
             font-inherit bg-[#1a1a1a] text-white
@@ -16,14 +16,14 @@ function App() {
             focus:outline-none focus-visible:outline-4 focus-visible:outline-blue-400
             dark:bg-[#1a1a1a] dark:text-white
             light:bg-[#f9f9f9] light:text-[#213547]
-          '
-          onClick={() => setCount((count) => count + 1)}
+          "
+          onClick={() => setCount((count) => count)}
         >
           count is {count}
         </button>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
