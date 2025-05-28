@@ -17,9 +17,9 @@ function App() {
             dark:bg-[#1a1a1a] dark:text-white
             light:bg-[#f9f9f9] light:text-[#213547]
           "
-          onClick={() => setCount((count) => count)}
+          onClick={() => setCount((count) => count + 1)}
         >
-          count issss {count}
+          count is {count}
         </button>
       </div>
     </>
