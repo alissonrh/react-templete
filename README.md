@@ -1,54 +1,94 @@
-# React + TypeScript + Vite
+# 🚀 Front-End React Template — Feature-Sliced Design
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório é um **template base** para aplicações front-end em React, utilizando:
 
-Currently, two official plugins are available:
+- ⚛️ React + TypeScript
+- 🎨 TailwindCSS
+- 📐 Arquitetura Feature-Sliced Design
+- 🧹 ESLint + Prettier + Husky
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Criado com foco em escalabilidade, boas práticas e clareza estrutural.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 Tecnologias
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Feature-Sliced Design](https://dev.to/m_midas/feature-sliced-design-the-best-frontend-architecture-4noj)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Husky](https://typicode.github.io/husky/#/)
+- [Vitest](https://vitest.dev/)
+
+---
+
+## 🗂️ Estrutura do Projeto (Feature-Sliced)
+
+```bash
+src/
+├── app/                 # Inicialização da aplicação (providers globais, rotas, tema, etc.)
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── providers/       # Contextos globais, temas, autenticação
+├── shared/              # Recursos reutilizáveis (UI, helpers, lib, constants)
+│   ├── ui/              # Componentes de UI genéricos (botão, modal, etc.)
+│   ├── lib/             # Bibliotecas utilitárias (axios instance, zod schemas)
+│   ├── config/          # Configurações globais (env, api urls)
+│   ├── types/           # Tipagens globais
+│   └── assets/          # Imagens, ícones, fontes
+├── entities/            # Modelos de domínio (User, Debt, Installment, etc.)
+│   └── user/            # Cada entidade tem lógica de domínio, serviços, etc.
+│       ├── model/
+│       ├── api/
+│       ├── ui/
+│       └── lib/
+├── features/            # Funcionalidades isoladas com lógica completa
+│   └── auth/            # login, register, reset-password...
+│       ├── model/
+│       ├── api/
+│       ├── ui/
+│       └── lib/
+├── pages/               # Entrypoints de páginas (rotas)
+│   ├── HomePage/
+│   │   └── index.tsx
+│   └── DashboardPage/
+│       └── index.tsx
+├── widgets/             # Blocos de interface que juntam várias features/entities
+│   └── Header/
+│   └── Sidebar/
+└── test/                # Setup global de testes (setup.ts, mocks, etc.)
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💡 Filosofia
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- **Modularidade**: funcionalidades são agrupadas por contexto, não por tipo.
+- **Baixo acoplamento**: cada módulo conhece apenas o que precisa.
+- **Reutilização explícita**: componentes genéricos ficam em `shared/`.
+- **Pronto para crescer**: ideal para times, MVPs e produção.
+
+---
+
+## ▶️ Como usar
+
+```bash
+git clone https://github.com/alissonrh/react-templete.git
+cd nome-do-template
+npm install
+npm run dev
 ```
+
+### Se o botão **count in 0** aparecer a aplicação esta funcionando.
+
+## 🧠 Sobre Feature-Sliced Design
+
+A arquitetura FSD propõe dividir o projeto em camadas funcionais em vez de técnicas, aumentando a escalabilidade e mantendo clareza na responsabilidade de cada parte da aplicação.
+
+Referência: [Feature-Sliced Design (dev.to)](https://dev.to/m_midas/feature-sliced-design-the-best-frontend-architecture-4noj)
+
+---
